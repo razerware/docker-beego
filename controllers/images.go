@@ -22,6 +22,7 @@ func (c *ImagesController) PullImages(name string ,tag string){
 	// req.Header.Set("X-Custom-Header", "myvalue")
 	req.Header.Set("Content-Type", "application/json")
 	q:=req.URL.Query()
+	
 	q.Add("fromImage","hello-world")
 	q.Add("tag","latest")
 	req.URL.RawQuery = q.Encode()
