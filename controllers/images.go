@@ -15,6 +15,9 @@ type ImagesController struct {
 func (c *ImagesController) Get() {
 	c.TplName = "form.tpl"
 }
+func (c *ImagesController) Post() {
+	c.TplName = "test.tpl"
+}
 
 func (c *ImagesController) PullImages(name string ,tag string){
 	url:=client.GetClient()

@@ -7,7 +7,33 @@
   <link rel="stylesheet" href="../static/layui/css/layui.css">
 </head>
 <body>
- <form method="post" id="user">
+<form class="layui-form" action="/containers" method="post">
+  <div class="layui-form-item">
+    <label class="layui-form-label">名字</label>
+    <div class="layui-input-block">
+      <input type="text" name="username" required  lay-verify="required" placeholder="请输入名字" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">年龄</label>
+    <div class="layui-input-inline">
+      <input type="text" name="age" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">邮箱</label>
+    <div class="layui-input-inline">
+      <input type="text" name="text" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+ </form>
+ <form method="post" id="user" action="">
     名字：<input name="username" type="text" />
     年龄：<input name="age" type="text" />
     邮箱：<input name="Email" type="text" />
@@ -21,11 +47,11 @@
 layui.use(['layer', 'form'], function(){
   var layer = layui.layer
   ,form = layui.form;
-  form.on('submit(user)', function(data){
+  form.on('submit(formDemo)', function(data){
     layer.alert(JSON.stringify(data.field), {
       title: '最终的提交信息'
     })
-    return false;
+    //return false;
   });
 });
 </script> 
