@@ -19,15 +19,21 @@ type user struct {
 
 type user2 struct {
 	Id    int `json:"-"`
-	Username  interface{} `json:"username"`
+	Name  interface{} `json:"username"`
 	Age   int         `json:"age"`
-	Text string      `json:"text"`
+	Email string      `json:"email"`
 }
 func (c *ContainerController) Get() {
+	if models.DbError!=nil{
+		fmt.Println(models.DbError)
+		c.TplName = "test.tpl"
+	}
 	db:=models.DB
 	err := db.Ping()
 	if err != nil {
 		fmt.Println(err)
+		c.TplName = "test.tpl"
+		return
 	}else{
 		fmt.Println("ok")
 	}
