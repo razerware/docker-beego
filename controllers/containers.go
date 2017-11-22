@@ -4,6 +4,7 @@ import (
 "github.com/astaxie/beego"
 	"fmt"
 	"encoding/json"
+	"docker-beego/models"
 )
 
 type ContainerController struct {
@@ -23,6 +24,29 @@ type user2 struct {
 	Text string      `json:"text"`
 }
 func (c *ContainerController) Get() {
+	db:=models.DB
+	err := db.Ping()
+	if err != nil {
+		fmt.Println(err)
+	}else{
+		fmt.Println("ok")
+	}
+	rows,err:=db.Query("SELECT * FROM test")
+	if err!=nil{
+		fmt.Println(err)
+	}else{
+		fmt.Println("ok rows")
+	}
+	for rows.Next()  {
+		var name string
+		if err=rows.Scan(&name);err!=nil{
+			fmt.Println(err)
+			fmt.Println("ggggggg")
+		}else{
+			fmt.Println(name)
+			fmt.Println("ssssss")
+		}
+	}
 	c.TplName = "test.tpl"
 }
 

@@ -42,7 +42,7 @@
 layui.use(['jquery','layer','form'],function(){
 	var layer = layui.layer;
 	var form = layui.form;
-	var $ =layui.$;  //如果你这里不用,最少你也要引入一个Jquery吧,不然当然以Fom自动提交了,你这个SB
+	var $ =layui.$;
     form.on('submit(formDemo)', function(data){
 	    $.ajax({
 	      url:"/lzy",
@@ -51,7 +51,7 @@ layui.use(['jquery','layer','form'],function(){
 	      data:JSON.stringify(data.field),
 	      success: function(msg){           
 	         
-	            console.log(msg.username);
+	            console.log(msg);
 	      }
 	    });
 	    return false;
