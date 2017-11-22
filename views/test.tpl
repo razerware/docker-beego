@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="../static/layui/css/layui.css">
 </head>
 <body>
-<form class="layui-form" action="/containers" method="post">
+<form class="layui-form">
   <div class="layui-form-item">
     <label class="layui-form-label">名字</label>
     <div class="layui-input-block">
-      <input type="text" name="username" required  lay-verify="required" placeholder="请输入名字" autocomplete="off" class="layui-input">
+      <input type="json" name="username" required  lay-verify="required" placeholder="请输入名字" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
@@ -33,27 +33,31 @@
     </div>
   </div>
  </form>
- <form method="post" id="user" action="">
-    名字：<input name="username" type="text" />
-    年龄：<input name="age" type="text" />
-    邮箱：<input name="Email" type="text" />
-    <input type="submit" value="提交" />
-</form>
 <!-- 你的HTML代码 -->
  
 <script src="../static/layui/layui.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
 <script>
 //一般直接写在一个js文件中
-layui.use(['layer', 'form'], function(){
-  var layer = layui.layer
-  ,form = layui.form;
-  form.on('submit(formDemo)', function(data){
-    layer.alert(JSON.stringify(data.field), {
-      title: '最终的提交信息'
-    })
-    //return false;
-  });
-});
+layui.use(['jquery','layer','form'],function(){
+	var layer = layui.layer;
+	var form = layui.form;
+	var $ =layui.$;  //如果你这里不用,最少你也要引入一个Jquery吧,不然当然以Fom自动提交了,你这个SB
+    form.on('submit(formDemo)', function(data){
+	    $.ajax({
+	      url:"/lzy",
+	      type:"post",
+	      dataType:"json",
+	      data:JSON.stringify(data.field),
+	      success: function(msg){           
+	         
+	            console.log(msg.username);
+	      }
+	    });
+	    return false;
+    });
+    
+})
 </script> 
 </body>
 </html>

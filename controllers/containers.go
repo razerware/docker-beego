@@ -25,14 +25,16 @@ type user2 struct {
 func (c *ContainerController) Get() {
 	c.TplName = "test.tpl"
 }
+
+func (this *ContainerController) Lzy() {
+	var ob user2
+	json.Unmarshal(this.Ctx.Input.RequestBody, &ob)
+	fmt.Println(string(this.Ctx.Input.RequestBody))
+	this.Data["json"] = ob
+	this.ServeJSON()
+}
+
 func (this *ContainerController) Post() {
-	u := user{}
-	if err := this.ParseForm(&u); err != nil {
-		//handle error
-		fmt.Println(u.Id)
-	}
-	this.Data["Website"] = u.Name
-	this.TplName="index.tpl"
 	var ob user2
 	json.Unmarshal(this.Ctx.Input.RequestBody, &ob)
 	fmt.Println(string(this.Ctx.Input.RequestBody))
