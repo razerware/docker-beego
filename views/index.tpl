@@ -82,6 +82,9 @@
   </header>
   <footer>
     <div class="author">
+      {{range $index,$V:=.Attributes }}  
+            <li>{{$V}}:{{$index}}</li>
+      {{end}}
       Official website:
       <a href="http://{{.Website}}">{{.Website}}</a> /
       Contact me:
