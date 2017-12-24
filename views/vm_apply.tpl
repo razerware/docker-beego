@@ -11,12 +11,12 @@
   <div class="layui-form-item">
     <label class="layui-form-label">虚拟机名称</label>
     <div class="layui-input-inline">
-      <input type="text" name="vm_name" required lay-verify="required" placeholder="请输入虚拟机名称" autocomplete="off" class="layui-input">
+      <input type="text" name="vm_name" required lay-verify="required" placeholder="请输入虚拟机名称" autocomplete="off" class="layui-input" style="width:400px;">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">虚拟机镜像</label>
-    <div class="layui-input-block">
+    <div class="layui-input-block" style="width:400px;">
       <select name="city" lay-verify="required">
         <option value=""></option>
         <option value="0">ubuntu16.04</option>
@@ -26,7 +26,7 @@
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">虚拟机类型</label>
-    <div class="layui-input-block">
+    <div class="layui-input-block" style="width:400px;">
       <select name="city" lay-verify="required">
         <option value=""></option>
         <option value="0">4核心8G内存</option>
@@ -35,9 +35,20 @@
     </div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">年龄</label>
+    <label class="layui-form-label">硬盘大小</label>
+    <div class="layui-input-block" style="width:400px;">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">40G</option>
+        <option value="1">80G</option>
+        <option value="2">160G</option>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">初始化脚本</label>
     <div class="layui-input-inline">
-      <input type="text" name="age" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+      <input type="text" name="vm_name" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" style="width:400px;height: 300px;">
     </div>
   </div>
   <div class="layui-form-item">

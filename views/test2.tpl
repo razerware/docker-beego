@@ -35,9 +35,14 @@
     </div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">年龄</label>
-    <div class="layui-input-inline">
-      <input type="text" name="age" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    <label class="layui-form-label">硬盘大小</label>
+    <div class="layui-input-block">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">40G</option>
+        <option value="1">80G</option>
+        <option value="1">160G</option>
+      </select>
     </div>
   </div>
   <div class="layui-form-item">
