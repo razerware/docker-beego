@@ -9,21 +9,35 @@
 <body>
 <form class="layui-form">
   <div class="layui-form-item">
-    <label class="layui-form-label">名字</label>
+    <label class="layui-form-label">虚拟机名称</label>
+    <div class="layui-input-inline">
+      <input type="text" name="vm_name" required lay-verify="required" placeholder="请输入虚拟机名称" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">虚拟机镜像</label>
     <div class="layui-input-block">
-      <input type="json" name="username" required  lay-verify="required" placeholder="请输入名字" autocomplete="off" class="layui-input">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">ubuntu16.04</option>
+        <option value="1">ubuntu14.04</option>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">虚拟机类型</label>
+    <div class="layui-input-block">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">4核心8G内存</option>
+        <option value="1">2核心4G内存</option>
+      </select>
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">年龄</label>
     <div class="layui-input-inline">
       <input type="text" name="age" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-    </div>
-  </div>
-  <div class="layui-form-item">
-    <label class="layui-form-label">邮箱</label>
-    <div class="layui-input-inline">
-      <input type="text" name="text" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
