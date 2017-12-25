@@ -10,8 +10,8 @@ func init() {
 	beego.Router("/images",&controllers.ImagesController{})
 
     beego.Router("/hdr",&controllers.HdrController{})
-    beego.Router("/test",&controllers.HdrController{},"*:Test")
-    beego.Router("/test2",&controllers.HdrController{},"*:Test2")
+    beego.Router("/cluster_info",&controllers.HdrController{},"*:ClusterInfo")
+    beego.Router("/cluster_detail",&controllers.HdrController{},"*:ClusterDetail")
     beego.Router("/cluster_apply",&controllers.HdrController{},"*:ClusterApply")
     beego.Router("/vm_detail",&controllers.HdrController{},"*:VmDetail")
     beego.Router("/vm_apply",&controllers.HdrController{},"*:VmApply")

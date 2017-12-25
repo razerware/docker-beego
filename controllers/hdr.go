@@ -9,15 +9,15 @@ type HdrController struct {
 }
 
 func (c *HdrController) Get() {
-    c.TplName = "all.tpl"
+    c.TplName = "layout.tpl"
 }
 
-func (c *HdrController) Test() {
-    c.TplName = "test.tpl"
+func (c *HdrController) ClusterInfo() {
+    c.TplName = "cluster_info.tpl"
 }
 
-func (c *HdrController) Test2() {
-    c.TplName = "test2.tpl"
+func (c *HdrController) ClusterDetail() {
+    c.TplName = "cluster_detail.tpl"
 }
 
 func (c *HdrController) ClusterApply() {
