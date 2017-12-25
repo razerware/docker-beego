@@ -53,9 +53,9 @@
             <li class="layui-nav-item">
               <a href="javascript:;">我的虚拟机</a>
               <dl class="layui-nav-child">
-                <dd><a href="javascript:;"" onclick="changeIframe('vm_detail.tpl')">查看虚拟机</a></dd>
-                <dd><a href="javascript:;"" onclick="changeIframe('vm_apply.tpl')">申请虚拟机</a></dd>
-                <dd><a href="javascript:;"" onclick="changeIframe('http://10.109.252.172:8888')">虚拟机监控</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('vm_detail.tpl')">查看虚拟机</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('vm_apply.tpl')">申请虚拟机</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('http://10.109.252.172:8888')">虚拟机监控</a></dd>
               </dl>
             </li>
             <li class="layui-nav-item">
@@ -81,18 +81,18 @@
         © layui.com - 底部固定区域
       </div>
     </div>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script> -->
     <script src="../static/layui/layui.js"></script>
     <script>
-//JavaScript代码区域
-layui.use(['element','jqeury'], function(){
-  var element = layui.element;
-  var $ = layui.jquery;
-});
+      // JavaScript代码区域
+      layui.use('element', function(){
+        var element = layui.element;
+        
+      });
 
-function changeIframe(url){
-  $("#demoAdmin").attr("src", url);  
-}
-</script>
-</body>
-</html>
+      function changeIframe(url){
+        $("#demoAdmin").attr("src", url);  
+      }
+    </script>
+  </body>
+  </html>
