@@ -9,5 +9,9 @@ type HdrController struct {
 }
 
 func (c *HdrController) Get() {
-    c.TplName = "all.html"
+    c.TplName = "all.tpl"
+}
+
+func (c *HdrController) Test() {
+    c.TplName = "test.tpl"
 }
