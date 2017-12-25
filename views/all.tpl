@@ -46,24 +46,24 @@
               <a class="" href="javascript:;">我的集群</a>
               <dl class="layui-nav-child">
                 <dd><a href="javascript:;" onclick="changeIframe('test')">查看集群</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('cluster_apply.tpl')">集群初始化</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('test2.tpl')">集群监控</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('cluster_apply')">集群初始化</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('test2')">集群监控</a></dd>
               </dl>
             </li>
             <li class="layui-nav-item">
               <a href="javascript:;">我的虚拟机</a>
               <dl class="layui-nav-child">
-                <dd><a href="javascript:;" onclick="changeIframe('vm_detail.tpl')">查看虚拟机</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('vm_apply.tpl')">申请虚拟机</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('vm_detail')">查看虚拟机</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('vm_apply')">申请虚拟机</a></dd>
                 <dd><a href="javascript:;" onclick="changeIframe('http://10.109.252.172:8888')">虚拟机监控</a></dd>
               </dl>
             </li>
             <li class="layui-nav-item">
               <a href="javascript:;">我的应用</a>
               <dl class="layui-nav-child">
-                <dd><a href="javascript:;" onclick="changeIframe('test2.tpl')">查看应用</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('service_apply.tpl')">申请应用</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('test2.tpl')">应用监控</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('service_detail')">查看应用</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('service_apply')">申请应用</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('service_info')">应用监控</a></dd>
               </dl>
             </li>
           </ul>
@@ -73,7 +73,7 @@
       <div class="layui-body">
         <!-- 内容主体区域 -->
         <br> </br>
-        <iframe src="test.tpl" frameborder="0" id="demoAdmin" style="width: 100%; height: 100%;"></iframe>
+        <iframe src="test" frameborder="0" id="demoAdmin" style="width: 100%; height: 100%;"></iframe>
       </div>
 
       <div class="layui-footer">
