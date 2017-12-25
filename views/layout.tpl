@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>layout Swarm集群管理 - Layui</title>
   <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <link rel="stylesheet" href="../static/css/lzy.css">
 </head>
 <body class="layui-layout-body">
   <div class="layui-layout layui-layout-admin">
@@ -47,7 +48,7 @@
               <dl class="layui-nav-child">
                 <dd class="layui-this"><a href="javascript:;" onclick="changeIframe('cluster_detail')">查看集群</a></dd>
                 <dd><a href="javascript:;" onclick="changeIframe('cluster_apply')">集群初始化</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('cluster_info')">集群监控</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('cluster_monitor')">集群监控</a></dd>
               </dl>
             </li>
             <li class="layui-nav-item">
@@ -63,7 +64,7 @@
               <dl class="layui-nav-child">
                 <dd><a href="javascript:;" onclick="changeIframe('service_detail')">查看应用</a></dd>
                 <dd><a href="javascript:;" onclick="changeIframe('service_apply')">申请应用</a></dd>
-                <dd><a href="javascript:;" onclick="changeIframe('service_info')">应用监控</a></dd>
+                <dd><a href="javascript:;" onclick="changeIframe('service_monitor')">应用监控</a></dd>
               </dl>
             </li>
           </ul>

@@ -18,13 +18,14 @@ layui.use('table', function(){
   table.render({
     elem: '#demo'
     ,height: 315
-    ,url: 'service_info.html' //数据接口
+    ,width: 800
+    ,url: 'vm_detail_api' //数据接口
     ,page: true //开启分页
     ,cols: [[ //表头
-      {field: 'vm_name', title: '虚拟机名称', width:120, sort: true, fixed: 'left'}
-      ,{field: 'vm_ip', title: '虚拟机IP地址', width:180}
-      ,{field: 'swarm_id', title: '所属集群id', width:120, sort: true}
-      ,{field: 'vm_info', title: '虚拟机规格', width:180} 
+      {field: 'vm_name', title: '虚拟机名称', minWidth:120, sort: true, fixed: 'left'}
+      ,{field: 'vm_ip', title: '虚拟机IP地址', minWidth:180}
+      ,{field: 'swarm_id', title: '所属集群id', minWidth:120, sort: true}
+      ,{field: 'vm_info', title: '虚拟机规格', minWidth:180} 
     ]]
   });
   

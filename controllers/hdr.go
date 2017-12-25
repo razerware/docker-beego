@@ -12,8 +12,8 @@ func (c *HdrController) Get() {
     c.TplName = "layout.tpl"
 }
 
-func (c *HdrController) ClusterInfo() {
-    c.TplName = "cluster_info.tpl"
+func (c *HdrController) ClusterMonitor() {
+    c.TplName = "cluster_monitor.tpl"
 }
 
 func (c *HdrController) ClusterDetail() {
@@ -32,6 +32,10 @@ func (c *HdrController) VmDetail() {
     c.TplName = "vm_detail.tpl"
 }
 
+func (c *HdrController) VmDetailApi() {
+    c.TplName = "vm_detail_api.tpl"
+}
+
 func (c *HdrController) ServiceApply() {
     c.TplName = "service_apply.tpl"
 }
@@ -40,6 +44,6 @@ func (c *HdrController) ServiceDetail() {
     c.TplName = "service_detail.tpl"
 }
 
-func (c *HdrController) ServiceInfo() {
-    c.TplName = "service_info.html"
+func (c *HdrController) ServiceMonitor() {
+    c.TplName = "service_monitor.tpl"
 }
