@@ -9,7 +9,7 @@ func init() {
     beego.Router("/", &controllers.MainController{})
 	beego.Router("/images",&controllers.ImagesController{})
 
-    beego.Router("/hdr",&controllers.HdrController{})
+    beego.Router("/home",&controllers.HdrController{})
     beego.Router("/cluster_monitor",&controllers.HdrController{},"*:ClusterMonitor")
     beego.Router("/cluster_detail",&controllers.HdrController{},"*:ClusterDetail")
     beego.Router("/cluster_apply",&controllers.HdrController{},"*:ClusterApply")

@@ -41,7 +41,7 @@
     <div class="layui-form-item">
       <label class="layui-form-label">扩容上限</label>
       <div class="layui-input-inline">
-        <input type="text" name="vm_name" required lay-verify="required" placeholder="副本个数不高于该值"autocomplete="off" class="layui-input" >
+        <input type="number" name="vm_name" required lay-verify="required" placeholder="副本个数不高于该值" autocomplete="off" class="layui-input" >
       </div>
     </div>
     <div class="layui-form-item">

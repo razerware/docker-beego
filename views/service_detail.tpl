@@ -2,82 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>开始使用layui</title>
-  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <title>table模块快速使用</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../static/css/lzy.css">
 </head>
 <body>
-<form class="layui-form">
-  <div class="layui-form-item">
-    <label class="layui-form-label">虚拟机名称</label>
-    <div class="layui-input-inline">
-      <input type="text" name="vm_name" required lay-verify="required" placeholder="请输入虚拟机名称" autocomplete="off" class="layui-input">
-    </div>
-  </div>
-  <div class="layui-form-item">
-    <label class="layui-form-label">虚拟机镜像</label>
-    <div class="layui-input-inline">
-      <select name="city" lay-verify="required">
-        <option value=""></option>
-        <option value="0">ubuntu16.04</option>
-        <option value="1">ubuntu14.04</option>
-      </select>
-    </div>
-  </div>
-  <div class="layui-form-item">
-    <label class="layui-form-label">虚拟机类型</label>
-    <div class="layui-input-inline">
-      <select name="city" lay-verify="required">
-        <option value=""></option>
-        <option value="0">4核心8G内存</option>
-        <option value="1">2核心4G内存</option>
-      </select>
-    </div>
-  </div>
-  <div class="layui-form-item">
-    <label class="layui-form-label">硬盘大小</label>
-    <div class="layui-input-inline">
-      <select name="city" lay-verify="required">
-        <option value=""></option>
-        <option value="0">40G</option>
-        <option value="1">80G</option>
-        <option value="1">160G</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="layui-form-item">
-    <div class="layui-input-block">
-      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-    </div>
-  </div>
- </form>
-<!-- 你的HTML代码 -->
+ 
+<table id="demo" lay-filter="test"></table>
  
 <script src="../static/layui/layui.js"></script>
-<!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
 <script>
-//一般直接写在一个js文件中
-layui.use(['jquery','layer','form'],function(){
-	var layer = layui.layer;
-	var form = layui.form;
-	var $ =layui.$;
-    form.on('submit(formDemo)', function(data){
-	    $.ajax({
-	      url:"/lzy",
-	      type:"post",
-	      dataType:"json",
-	      data:JSON.stringify(data.field),
-	      success: function(msg){           
-	         
-	            console.log(msg);
-	      }
-	    });
-	    return false;
-    });
-    
-})
-</script> 
+layui.use('table', function(){
+  var table = layui.table;
+  
+  //第一个实例
+  table.render({
+    elem: '#demo'
+    ,height: 315
+    // ,width: 800
+    ,url: 'vm_detail_api' //数据接口
+    ,page: true //开启分页
+    ,cols: [[ //表头
+      {field: 'vm_name', title: '应用名称', minWidth:100, sort: true}
+      ,{field: 'swarm_id', title: '所属集群id', minWidth:100, sort: true}
+      ,{field: 'vm_info', title: '访问地址', minWidth:180} 
+      ,{field: 'vm_ip', title: '副本数量', minWidth:180}
+      ,{field: 'vm_ip', title: '弹性扩容设置', minWidth:180}
+      ,{title: '操作', minWidth:180, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+    ]]
+  });
+
+});
+</script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-mini edit" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+</script>
 </body>
 </html>

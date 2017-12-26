@@ -7,7 +7,18 @@
   <link rel="stylesheet" href="../static/css/lzy.css">
 </head>
 <body>
- 
+
+<form class="layui-form">
+  <div class="layui-form-item">
+    <label class="layui-form-label">集群名称</label>
+    <div class="layui-input-block" style="width: 200px">
+      <select name="swarm_name">
+        <option value="0">瓜皮</option>
+        <option value="1">瓜皮李正寅</option>
+      </select>
+    </div>
+  </div>
+</form>
 <table id="demo" lay-filter="test"></table>
  
 <script src="../static/layui/layui.js"></script>
@@ -34,8 +45,6 @@ layui.use('table', function(){
 });
 </script>
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-mini" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
 </script>
 </body>

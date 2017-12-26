@@ -34,8 +34,6 @@ layui.use('table', function(){
 });
 </script>
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-mini" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
 </script>
 </body>

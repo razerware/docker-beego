@@ -73,8 +73,8 @@
 
       <div class="layui-body">
         <!-- 内容主体区域 -->
-        <br> </br>
-        <iframe src="cluster_detail" frameborder="0" id="demoAdmin" style="width: 100%; height: 100%;"></iframe>
+        <br/>
+        <iframe src="cluster_detail" frameborder="0" id="demoAdmin" style="width: 100%; height: 96%;"></iframe>
       </div>
 
       <div class="layui-footer">
