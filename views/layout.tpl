@@ -13,15 +13,15 @@
       <div class="layui-logo">服务创新云平台</div>
       <!-- 头部区域（可配合layui已有的水平导航） -->
       <ul class="layui-nav layui-layout-left">
-        <li class="layui-nav-item"><a href="">首页</a></li>
-        <li class="layui-nav-item"><a href="">平台简介</a></li>
-        <li class="layui-nav-item"><a href="">服务资源库</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">首页</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">平台简介</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">服务资源库</a></li>
         <li class="layui-nav-item">
-          <a href="">个人中心</a></li>
+          <a href="javascript:;">个人中心</a></li>
           <dl class="layui-nav-child">
-            <dd><a href="">我的集群</a></dd>
-            <dd><a href="">我的虚拟机</a></dd>
-            <dd><a href="">我的应用</a></dd>
+            <dd><a href="javascript:;">我的集群</a></dd>
+            <dd><a href="javascript:;">我的虚拟机</a></dd>
+            <dd><a href="javascript:;">我的应用</a></dd>
           </dl>
         </ul>
         <ul class="layui-nav layui-layout-right">
@@ -31,11 +31,11 @@
               正寅
             </a>
             <dl class="layui-nav-child">
-              <dd><a href="">基本资料</a></dd>
-              <dd><a href="">安全设置</a></dd>
+              <dd><a href="javascript:;">基本资料</a></dd>
+              <dd><a href="javascript:;">安全设置</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item"><a href="">退出</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
         </ul>
       </div>
 

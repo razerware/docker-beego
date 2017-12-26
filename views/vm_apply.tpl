@@ -48,7 +48,7 @@
   <div class="layui-form-item">
     <label class="layui-form-label">初始化脚本</label>
     <div class="layui-input-inline">
-      <input type="text" name="vm_name" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" style="width:400px;height: 300px;">
+      <textarea name="vm_name" lay-verify="required" placeholder="请输入脚本" class="layui-textarea" style="width:400px"></textarea>
     </div>
   </div>
   <div class="layui-form-item">
