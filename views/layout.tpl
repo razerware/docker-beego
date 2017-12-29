@@ -87,13 +87,6 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 <script src="../static/layui/layui.js"></script>
 <script>
-$(function() {
-  document.cookie = 'sb';
-  if (document.cookie === 'sb') {
-    console.log('service_detail/username='+document.cookie)
-  }
-});
-
 //JavaScript代码区域
 layui.use(['element'], function(){
   var element = layui.element;
