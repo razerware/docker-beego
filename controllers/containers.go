@@ -37,7 +37,7 @@ func (c *ContainerController) Get() {
 	}else{
 		fmt.Println("ok")
 	}
-	rows,err:=db.Query("SELECT * FROM test")
+	rows,err:=db.Query("SELECT * FROM service")
 	if err!=nil{
 		fmt.Println(err)
 	}else{
