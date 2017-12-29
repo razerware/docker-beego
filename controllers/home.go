@@ -9,6 +9,7 @@ type HomeController struct {
 }
 
 func (c *HomeController) Get() {
+    c.Ctx.SetCookie("hdr","sssssssnnnnnnnnnnnnbbbbb")
     c.TplName = "layout.tpl"
 }
 
