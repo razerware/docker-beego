@@ -27,3 +27,7 @@ func (c *ClusterController) ClusterDetail() {
 func (c *ClusterController) ClusterApply() {
 	c.TplName = "cluster_apply.tpl"
 }
+
+func (c *ClusterController) Test() {
+	c.TplName = "cluster_apply.tpl"
+}

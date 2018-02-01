@@ -59,7 +59,7 @@ func (c *ContainerController) Get() {
 func (this *ContainerController) Lzy() {
 	var ob user2
 	json.Unmarshal(this.Ctx.Input.RequestBody, &ob)
-	fmt.Println(string(this.Ctx.Input.RequestBody))
+	fmt.Println(ob)
 	this.Data["json"] = ob
 	this.ServeJSON()
 }

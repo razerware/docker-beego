@@ -9,7 +9,7 @@ func init() {
     beego.Router("/", &controllers.MainController{})
 	beego.Router("/images",&controllers.ImagesController{})
 
-    beego.Router("/home/:username",&controllers.HomeController{})
+    beego.Router("/home/?:username",&controllers.HomeController{})
     beego.Router("/cluster_monitor",&controllers.ClusterController{},"*:ClusterMonitor")
     beego.Router("/cluster_detail",&controllers.ClusterController{},"*:ClusterDetail")
     beego.Router("/cluster_apply",&controllers.ClusterController{},"*:ClusterApply")
@@ -22,6 +22,7 @@ func init() {
     beego.Router("/service_detail",&controllers.ServiceController{},"*:ServiceDetail")
     beego.Router("/service_monitor",&controllers.ServiceController{},"*:ServiceMonitor")
 
+    beego.Router("/login", &controllers.LoginController{})
 	beego.Router("/containers",&controllers.ContainerController{})
 	beego.Router("/lzy",&controllers.ContainerController{},"post:Lzy")
 }
