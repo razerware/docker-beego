@@ -29,6 +29,21 @@ func (c *HomeController) Get() {
     c.TplName = "layout.tpl"
 }
 
+func (c *HomeController) GetUid() {
+    // 从Router拿到username
+    session_id:=c.Ctx.GetCookie("session_id")
+    fmt.Println(session_id)
+    v := c.GetSession(session_id)
+    fmt.Println(v)
+    if v==nil{
+        fmt.Println("session not exist")
+        c.Redirect(beego.URLFor("LoginController.Get"),302)
+        c.StopRun()
+    }
+    username:=c.Ctx.GetCookie("username")
+    fmt.Println(username)
+}
+
 
 
 

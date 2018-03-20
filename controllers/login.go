@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"docker-beego/models"
-	"strconv"
 )
 
 type LoginController struct {
@@ -35,8 +34,8 @@ func (c *LoginController) Post() {
 	fmt.Println(user)
 	auth,msg:=c.Auth(user)
 	if auth==true{
-		c.SetSession(strconv.Itoa(user.Uid),user.Username)
-		c.Ctx.SetCookie("session_id",strconv.Itoa(user.Uid))
+		c.SetSession(msg,user.Username)
+		c.Ctx.SetCookie("session_id",msg)
 		url := beego.URLFor("HomeController.Get")
 		fmt.Println(url)
 		c.Redirect(url, 302)
@@ -82,17 +81,19 @@ func (c *LoginController) Auth(user User) (bool, string){
 	}else{
 		fmt.Println("ok")
 	}
-	rows,err:=db.Query("SELECT password FROM user Where uid="+strconv.Itoa(user.Uid))
+	rows,err:=db.Query("SELECT password,uid FROM user Where username='"+user.Username+"'")
 	if err!=nil{
 		fmt.Println(err)
 	}else{
 		for rows.Next()  {
 			var password string
-			if err=rows.Scan(&password);err!=nil{
+			var uid string
+			if err=rows.Scan(&password,&uid);err!=nil{
 				fmt.Println(err)
 				return false,fmt.Sprint(err)
 			}else if password==user.Password{
-				return true,"password right"
+				fmt.Println(password,uid)
+				return true,uid
 			}else {
 				return false,"wrong password"
 			}
@@ -100,3 +101,4 @@ func (c *LoginController) Auth(user User) (bool, string){
 	}
 	return false,fmt.Sprint(err)
 }
+

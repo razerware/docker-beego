@@ -20,9 +20,12 @@ func init() {
 
     beego.Router("/service_apply",&controllers.ServiceController{},"*:ServiceApply")
     beego.Router("/service_detail",&controllers.ServiceController{},"*:ServiceDetail")
+	beego.Router("/list_service",&controllers.ServiceController{},"*:ListService")
     beego.Router("/service_monitor",&controllers.ServiceController{},"*:ServiceMonitor")
 
     beego.Router("/login", &controllers.LoginController{})
 	beego.Router("/containers",&controllers.ContainerController{})
 	beego.Router("/lzy",&controllers.ContainerController{},"post:Lzy")
+
+	beego.Include(&controllers.TestController{})
 }

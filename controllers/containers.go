@@ -71,6 +71,7 @@ func (this *ContainerController) Post() {
 	this.Data["json"] = ob
 	this.ServeJSON()
 }
+
 func (c *ContainerController) GetContainers() {
 	c.Data["Website"] = "beego.me"
 	c.Data["Email"] = "astaxie@gmail.com"
