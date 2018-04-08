@@ -47,23 +47,23 @@
           <li class="layui-nav-item layui-nav-itemed">
             <a class="" href="javascript:;">我的集群</a>
             <dl class="layui-nav-child">
-              <dd class="layui-this"><a href="javascript:;" onclick="changeIframe('cluster_detail')">查看集群</a></dd>
-              <dd><a href="javascript:;" onclick="changeIframe('cluster_apply')">集群初始化</a></dd>
-              <dd><a href="javascript:;" onclick="changeIframe('cluster_monitor')">集群监控</a></dd>
+              <dd class="layui-this"><a href="javascript:;" onclick="changeIframe('cluster_detail')" id="cluster_detail">查看集群</a></dd>
+              <dd><a href="javascript:;" onclick="changeIframe('cluster_apply')">申请集群</a></dd>
+              <!-- <dd><a href="javascript:;" onclick="changeIframe('cluster_monitor')">集群监控</a></dd> -->
             </dl>
           </li>
           <li class="layui-nav-item">
             <a href="javascript:;">我的虚拟机</a>
             <dl class="layui-nav-child">
               <dd><a href="javascript:;" onclick="changeIframe('vm_detail')">查看虚拟机</a></dd>
-              <dd><a href="javascript:;" onclick="changeIframe('vm_apply')">申请虚拟机</a></dd>
-              <dd><a href="javascript:;" onclick="changeIframe('http://10.109.252.172:8888')">虚拟机监控</a></dd>
+              <!-- <dd><a href="javascript:;" onclick="changeIframe('vm_apply')">申请虚拟机</a></dd> -->
+              <!-- <dd><a href="javascript:;" onclick="changeIframe('http://10.109.252.172:8888')">虚拟机监控</a></dd> -->
             </dl>
           </li>
           <li class="layui-nav-item">
             <a href="javascript:;">我的应用</a>
             <dl class="layui-nav-child">
-              <dd><a href="javascript:;" onclick="changeIframe('service_detail')">查看应用</a></dd>
+              <dd><a href="javascript:;" onclick="changeIframe('service_detail')" id="service_detail">查看应用</a></dd>
               <dd><a href="javascript:;" onclick="changeIframe('service_apply')">申请应用</a></dd>
               <dd><a href="javascript:;" onclick="changeIframe('service_monitor')">应用监控</a></dd>
             </dl>
@@ -87,14 +87,14 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 <script src="../static/layui/layui.js"></script>
 <script>
+function changeIframe(url){
+  $("#demoAdmin").attr("src", url);  
+}
 //JavaScript代码区域
 layui.use(['element'], function(){
   var element = layui.element;
 });
 
-function changeIframe(url){
-  $("#demoAdmin").attr("src", url);  
-}
 </script>
 </body>
 </html>

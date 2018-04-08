@@ -89,18 +89,28 @@ layui.use(['jquery','layer','form'],function(){
 	var form = layui.form;
 	var $ =layui.$;
   form.on('submit(formDemo)', function(data){
-   $.ajax({
-     url:"/lzy",
-     type:"post",
-     dataType:"json",
-     data:JSON.stringify(data.field),
-     success: function(msg){           
+    $.ajax({
+      url:"/lzy",
+      type:"post",
+      dataType:"json",
+      data:JSON.stringify(data.field),
+      success: function(msg){
+        console.log(msg);
+      }
+    });
 
-       console.log(msg);
-     }
-   });
-   return false;
- });
+    layer.open({
+      title: '提示'
+      ,content: '申请成功！'
+      ,yes: function(index, layero){
+        layer.close(index); //如果设定了yes回调，需进行手工关闭
+        $("#cluster_detail", window.parent.document).click();
+        $("#cluster_detail", window.parent.document).parent().siblings('dd').removeClass('layui-this');
+        $("#cluster_detail", window.parent.document).parent().addClass('layui-this')
+      }
+    });     
+    return false;
+  });
 
 })
 </script> 

@@ -8,44 +8,65 @@
 </head>
 <body>
 
-<form class="layui-form">
-  <div class="layui-form-item">
-    <label class="layui-form-label">集群名称</label>
-    <div class="layui-input-block" style="width: 200px">
-      <select name="swarm_name">
-        <option value="0">瓜皮</option>
-        <option value="1">瓜皮李正寅</option>
-      </select>
-    </div>
-  </div>
-</form>
-<table id="demo" lay-filter="test"></table>
+<h3 style="margin-left: 20px">集群信息表</h3>
+<table id="swarm-table" lay-filter="swarm-table"></table>
+<h3 style="display: none; margin-left: 20px" id="vm_title">虚拟机信息表</h3>
+<table id="vm-table" lay-filter="vm-table"></table>
  
 <script src="../static/layui/layui.js"></script>
 <script>
-layui.use('table', function(){
+layui.use(['jquery','table','form'], function(){
+  var $ =layui.$;
   var table = layui.table;
-  
+  var form = layui.form;
+
   //第一个实例
   table.render({
-    elem: '#demo'
+    elem: '#swarm-table'
     ,height: 315
     // ,width: 800
-    ,url: 'vm_detail_api' //数据接口
-    ,page: true //开启分页
+    ,url: 'cluster_list' //数据接口
+    ,page: false //开启分页
     ,cols: [[ //表头
-      {field: 'vm_name', title: '虚拟机名称', minWidth:100, sort: true}
-      ,{field: 'vm_ip', title: '虚拟机IP地址', minWidth:180}
-      ,{field: 'swarm_id', title: '所属集群id', minWidth:100, sort: true}
-      ,{field: 'vm_info', title: '虚拟机规格', minWidth:180} 
-      ,{title: '操作', minWidth:180, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+      {field: 'manager_ip', title: '管理节点IP地址', width:160}
+      ,{field: 'lower_limit', title: '节点下限', width:100}
+      ,{field: 'upper_limit', title: '节点上限', width:100}
+      ,{field: 'step', title: '步长', width:60}
+      ,{field: 'cpu_lower', title: 'CPU阈值下限', width:120}
+      ,{field: 'cpu_upper', title: 'CPU阈值上限', width:120}
+      ,{field: 'mem_lower', title: 'MEM阈值下限', width:160}
+      ,{field: 'mem_upper', title: 'MEM阈值上限', width:160}
+      ,{field: 'token', title: '集群token'}
+      ,{fixed: 'right', title: '查看', width:150, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
     ]]
   });
+
+  table.on('tool(swarm-table)', function(obj){
+    $("#vm_title").show();
+    var swarmId = obj.data.swarm_id;
+    //第2个实例
+    table.render({
+      elem: '#vm-table'
+      ,height: 315
+      // ,width: 800
+      ,url: 'vm_list?swarmId='+swarmId //数据接口
+      ,page: false //开启分页
+      ,cols: [[ //表头
+        {field: 'instance_id', title: '虚拟机ID'}
+        ,{field: 'ip', title: '虚拟机IP'}
+        ,{field: 'cpu', title: 'CPU'}
+        ,{field: 'mem', title: 'MEM'}
+        ,{field: 'disk', title: 'DISK'}
+      ]]
+    });
+  });
+
+
 
 });
 </script>
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+  <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">查看</a>
 </script>
 </body>
 </html>

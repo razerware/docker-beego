@@ -20,15 +20,22 @@ layui.use('table', function(){
     elem: '#demo'
     ,height: 315
     // ,width: 800
-    ,url: 'vm_detail_api' //数据接口
-    ,page: true //开启分页
+    ,url: '/list_service' //数据接口
+    ,page: false //开启分页
     ,cols: [[ //表头
-      {field: 'vm_name', title: '应用名称', minWidth:100, sort: true}
-      ,{field: 'swarm_id', title: '所属集群id', minWidth:100, sort: true}
-      ,{field: 'vm_info', title: '访问地址', minWidth:180} 
-      ,{field: 'vm_ip', title: '副本数量', minWidth:180}
-      ,{field: 'vm_ip', title: '弹性扩容设置', minWidth:180}
-      ,{title: '操作', minWidth:180, align:'center', toolbar: '#barDemo'} //这里的toolbar值是模板元素的选择器
+      {field: 'name', title: '服务名称', width:100}
+      ,{field: 'swarm_id', title: '集群ID', width:100}
+      ,{field: 'service_id', title: '服务ID', width:100}
+      ,{field: 'address', title: '服务地址'}
+      ,{field: 'image', title: '镜像'}
+      ,{field: 'replication', title: '副本个数', width:100}
+      ,{field: 'lower_limit', title: '节点下限', width:100}
+      ,{field: 'upper_limit', title: '节点上限', width:100}
+      ,{field: 'step', title: '步长', width:60}
+      ,{field: 'cpu_lower', title: 'CPU阈值下限', width:120}
+      ,{field: 'cpu_upper', title: 'CPU阈值上限', width:120}
+      ,{field: 'mem_lower', title: 'MEM阈值下限', width:120}
+      ,{field: 'mem_upper', title: 'MEM阈值上限', width:120}       
     ]]
   });
 

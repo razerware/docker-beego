@@ -1,11 +1,11 @@
 package elbController
 
 type ElasticInfo struct {
-	UpperLimit int
-	LowerLimit int
-	Step int
-	Cpu_lower int
-	Cpu_upper int
-	Mem_lower int
-	Mem_upper int
+	UpperLimit int `json:"UpperLimit"`
+	LowerLimit int `json:"LowerLimit"`
+	Step int `json:"Step"`
+	CpuLower int `json:"CpuLower"`
+	CpuUpper int `json:"CpuUpper"`
+	MemLower int `json:"MemLower"`
+	MemUpper int `json:"MemUpper"`
 }
