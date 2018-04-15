@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"docker-beego/controllers"
+	"github.com/razerware/docker_beego/controllers"
 	"github.com/astaxie/beego"
 )
 

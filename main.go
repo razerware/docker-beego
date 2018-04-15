@@ -1,11 +1,11 @@
 package main
 
 import (
-	_"docker-beego/routers"
+	_"github.com/razerware/docker_beego/routers"
 	"github.com/astaxie/beego"
 	"flag"
 	"github.com/golang/glog"
-	"docker-beego/models"
+	"github.com/razerware/docker_beego/models"
 )
 
 func main() {

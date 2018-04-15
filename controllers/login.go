@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"docker-beego/models"
+	"github.com/razerware/docker_beego/models"
 	"github.com/golang/glog"
 	"strings"
 )

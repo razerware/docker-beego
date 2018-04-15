@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"docker-beego/models"
+	"github.com/razerware/docker_beego/models"
 	"fmt"
 	"github.com/golang/glog"
 	"encoding/json"

@@ -4,7 +4,7 @@ import (
 "github.com/astaxie/beego"
 	"fmt"
 	"encoding/json"
-	"docker-beego/models"
+	"github.com/razerware/docker_beego/models"
 )
 
 type ContainerController struct {

@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "ClusterApply",
 			Router: `/cluster_apply`,
@@ -15,7 +15,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "ClusterInit",
 			Router: `/cluster_apply`,
@@ -23,7 +23,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "ClusterDetail",
 			Router: `/cluster_detail`,
@@ -31,7 +31,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "ClusterExpand",
 			Router: `/cluster_expand`,
@@ -44,7 +44,7 @@ func init() {
 			),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "ClusterJoin",
 			Router: `/cluster_join`,
@@ -52,7 +52,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "ClusterList",
 			Router: `/cluster_list`,
@@ -60,7 +60,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "VmList",
 			Router: `/vm_list`,
@@ -68,7 +68,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ClusterController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ClusterController"],
 		beego.ControllerComments{
 			Method: "VmListAll",
 			Router: `/vm_list_all`,
@@ -76,7 +76,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"],
 		beego.ControllerComments{
 			Method: "ListService",
 			Router: `/list_service`,
@@ -84,7 +84,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"],
 		beego.ControllerComments{
 			Method: "ServiceApply",
 			Router: `/service_apply`,
@@ -92,7 +92,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"],
 		beego.ControllerComments{
 			Method: "ServiceApplyPost",
 			Router: `/service_apply`,
@@ -100,7 +100,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"],
 		beego.ControllerComments{
 			Method: "ServiceDetail",
 			Router: `/service_detail`,
@@ -108,7 +108,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:ServiceController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:ServiceController"],
 		beego.ControllerComments{
 			Method: "ServiceMonitor",
 			Router: `/service_monitor`,
@@ -116,7 +116,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:TestController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:TestController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"],
 		beego.ControllerComments{
 			Method: "MysqlQuery_Test",
 			Router: `/test_mysql`,
@@ -124,7 +124,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:TestController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:TestController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"],
 		beego.ControllerComments{
 			Method: "ServiceApply_Test",
 			Router: `/test_service`,
@@ -132,7 +132,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:TestController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:TestController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"],
 		beego.ControllerComments{
 			Method: "ServiceApply_Test2",
 			Router: `/test_service`,
@@ -140,7 +140,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:TestController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:TestController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"],
 		beego.ControllerComments{
 			Method: "Session_test",
 			Router: `/test_session`,
@@ -148,7 +148,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:TestController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:TestController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:TestController"],
 		beego.ControllerComments{
 			Method: "Uid_test",
 			Router: `/test_uid`,
@@ -156,7 +156,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["docker-beego/controllers:VmController"] = append(beego.GlobalControllerRouter["docker-beego/controllers:VmController"],
+	beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:VmController"] = append(beego.GlobalControllerRouter["github.com/razerware/docker_beego/controllers:VmController"],
 		beego.ControllerComments{
 			Method: "VmDetail",
 			Router: `/vm_detail`,

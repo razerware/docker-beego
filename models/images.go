@@ -1,7 +1,7 @@
 package models
 
 import (
-	"docker-beego/client"
+	"github.com/razerware/docker_beego/client"
 	"net/http"
 	"fmt"
 	"io/ioutil"
