@@ -36,7 +36,7 @@
               <dd><a href="javascript:;">安全设置</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+          <li class="layui-nav-item"><a href="/logout">退出</a></li>
       </ul>
     </div>
 
@@ -80,7 +80,7 @@
 
     <div class="layui-footer">
       <!-- 底部固定区域 -->
-      © 李正寅退了 - 网络服务基础研究中心
+      © 服务创新云平台 - 网络服务基础研究中心
     </div>
   </div>
 

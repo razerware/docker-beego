@@ -28,7 +28,8 @@ layui.use('table', function(){
       ,{field: 'service_id', title: '服务ID', width:100}
       ,{field: 'address', title: '服务地址'}
       ,{field: 'image', title: '镜像'}
-      ,{field: 'replication', title: '副本个数', width:100}
+      ,{field: 'replication', title: '副本数量', width:100}
+      ,{field: 'desire_replica', title: '副本预设', width:100}
       ,{field: 'lower_limit', title: '节点下限', width:100}
       ,{field: 'upper_limit', title: '节点上限', width:100}
       ,{field: 'step', title: '步长', width:60}

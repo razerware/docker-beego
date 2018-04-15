@@ -1,15 +1,14 @@
-package controllers
+package models
 
 import (
 	"net/http"
 	"bytes"
 	"io/ioutil"
 	"fmt"
-	"encoding/json"
 	"github.com/golang/glog"
 )
 
-func MyPost(url string, send_bytes []byte) (int,[]byte,error){
+func MyPost(url string, send_bytes []byte) (int, []byte, error) {
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(send_bytes))
 	if err != nil {
 		// handle error
@@ -24,24 +23,37 @@ func MyPost(url string, send_bytes []byte) (int,[]byte,error){
 	} else {
 		glog.V(1).Info("MyPost successed!")
 	}
-	code:=resp.StatusCode
-	return code,body,err
+	code := resp.StatusCode
+	return code, body, err
 }
 
-func MyGet(url string, stats interface{}) {
+func MyGet(url string, queries map[string]string) (int, []byte, error) {
 	client := &http.Client{}
 	fmt.Println(url)
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		// handle error
+		glog.Error(err)
 	}
+	//add queries
+	q := req.URL.Query()
+	for k, v := range queries {
+		q.Add(k, v)
+	}
+	//q.Add("fromImage","hello-world")
+	//q.Add("tag","latest")
+	req.URL.RawQuery = q.Encode()
+	glog.Info(req.URL.String())
+
 	resp, err := client.Do(req)
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		// handle error
+		glog.Error(err)
+	} else {
+		glog.V(1).Info("MyPost successed!")
 	}
-	cs := stats
-	json.Unmarshal(body, &cs)
-	fmt.Println(cs)
+	code := resp.StatusCode
+	return code, body, err
 }

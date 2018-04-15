@@ -13,7 +13,7 @@
         <div class="layui-carousel video_mask bg-img" id="login_carousel" >
 
             <div class="login layui-anim layui-anim-up">
-                <h1>李正寅退了管理平台</h1></p>
+                <h1>服务创新容器管理平台</h1></p>
                 <form class="layui-form" action="" method="post">
                     <div class="layui-form-item">
                         <input type="text" name="username" lay-verify="required" placeholder="请输入账号" autocomplete="off"  value="{{.username}}" class="layui-input">
@@ -36,13 +36,13 @@
                     layer.msg(error_info,{time:2000,offset: '100px'});
                 }
 
-	            form.on('submit(login)', function(data){
-	            	console.log(data.field)	
-				    $.post('/login', JSON.stringify(data.field), function(){
-				  		location.reload();
-				    });
-				    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-				});
+	   //          form.on('submit(login)', function(data){
+	   //          	console.log(data.field)	
+				//     $.post('/login', JSON.stringify(data.field), function(){
+				//   		location.reload();
+				//     });
+				//     return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+				// });
             })
         </script>
     </body>

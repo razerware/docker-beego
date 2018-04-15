@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
 	"docker-beego/models"
 	"fmt"
 	"github.com/golang/glog"
@@ -9,14 +8,14 @@ import (
 )
 
 type TestController struct {
-	beego.Controller
+	BaseController
 }
 
 // @router /test_mysql [get]
 func (c *TestController) MysqlQuery_Test() {
 	//uid := 1
 	sql := fmt.Sprintf("SELECT ip FROM `vm_info` WHERE swarm_id=''")
-	c.CustomAbort(203,"ggg")
+	c.CustomAbort(203, "ggg")
 	////swarm_id:=1
 	////sql := fmt.Sprintf("SELECT * FROM `service` WHERE swarm_id=%d", swarm_id)
 	////temp:=ClusterInfo{}
@@ -68,12 +67,12 @@ func (c *TestController) ServiceApply_Test2() {
 	//MyPost("http://127.0.0.1:8080/service_apply_post",[]byte(js))
 	//glog.Info("456")
 
-	var fss FrontendSS
+	var fss models.FrontendSS
 	json.Unmarshal(c.Ctx.Input.RequestBody, &fss)
-	sql:=fmt.Sprintf("INSERT INTO `service` (`name`,`upper_limit`, `lower_limit`, `step`, " +
-		"`cpu_lower`, `cpu_upper`, `mem_lower`, `mem_upper`) " +
+	sql := fmt.Sprintf("INSERT INTO `service` (`name`,`upper_limit`, `lower_limit`, `step`, "+
+		"`cpu_lower`, `cpu_upper`, `mem_lower`, `mem_upper`) "+
 		"VALUES ('%s','%d', '%d', '%d', '%d', '%d', '%d', '%d')",
-			fss.Name,fss.UpperLimit,fss.LowerLimit,fss.Step,fss.CpuLower,fss.CpuUpper,fss.MemLower,fss.MemUpper)
+		fss.Name, fss.UpperLimit, fss.LowerLimit, fss.Step, fss.CpuLower, fss.CpuUpper, fss.MemLower, fss.MemUpper)
 	fmt.Println(sql)
 	last, row, err := models.MysqlInsert(sql)
 	glog.Info(last, row, err)
@@ -82,3 +81,17 @@ func (c *TestController) ServiceApply_Test2() {
 
 }
 
+// @router /test_session [get]
+func (c *TestController) Session_test() {
+	username := c.Ctx.GetCookie("username")
+	uid := c.GetSession(username)
+	c.Data["json"] = uid
+	c.ServeJSON()
+
+}
+
+// @router /test_uid [*]
+func (c *TestController) Uid_test() {
+	c.Data["json"]=c.userId
+	c.ServeJSON()
+}

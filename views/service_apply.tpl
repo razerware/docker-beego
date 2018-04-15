@@ -27,7 +27,9 @@
       <div class="layui-input-inline" style="width: 300px">
         <select name="image" lay-verify="required" >
           <option value=""></option>
+          
           <option value="10.109.252.163:5000/emilevauge/whoami">10.109.252.163:5000/emilevauge/whoami</option>
+          <option value="10.109.252.163:5000/test11">10.109.252.163:5000/test11</option>
         </select>
       </div>
     </div>
@@ -125,19 +127,19 @@ layui.use(['jquery','layer','form'],function(){
     var postData = {};
     postData.Name = data.field.name;
     postData.Image = data.field.image;
-    postData.SwarmId = swarm_id;
+    postData.swarm_id = swarm_id;
     postData.Constraints = "node.role==worker";
     postData.Target = "traefik-net";
     postData.Replicas = parseInt(data.field.replicas);;
     postData['traefik.port'] = "80";
     postData['traefik.frontend.rule'] = "Host:test.com";
-    postData.UpperLimit = parseInt(data.field.upper_limit);
-    postData.LowerLimit = parseInt(data.field.lower_limit);
+    postData.upper_limit = parseInt(data.field.upper_limit);
+    postData.lower_limit = parseInt(data.field.lower_limit);
     postData.Step = parseInt(data.field.step);
-    postData.CpuLower = parseInt(data.field.cpu_lower);
-    postData.CpuUpper = parseInt(data.field.cpu_upper);
-    postData.MemLower = parseInt(data.field.mem_lower);
-    postData.MemUpper = parseInt(data.field.mem_upper);
+    postData.cpu_lower = parseInt(data.field.cpu_lower);
+    postData.cpu_upper = parseInt(data.field.cpu_upper);
+    postData.mem_lower = parseInt(data.field.mem_lower);
+    postData.mem_upper = parseInt(data.field.mem_upper);
     console.log(postData)
     $.ajax({
       url:"/service_apply?manager_ip="+data.field.manager_ip,
