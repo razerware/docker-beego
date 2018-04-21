@@ -42,7 +42,7 @@ layui.use(['jquery','table','form'], function(){
     ,url: 'vm_list_all' //数据接口
     ,page: false //开启分页
     ,cols: [[ //表头
-      {field: 'instance_id', title: '虚拟机ID'}
+      {field: 'node_id', title: '节点ID'}
       ,{field: 'swarm_id', title: '所属集群'}
       ,{field: 'ip', title: '虚拟机IP'}
       ,{field: 'cpu', title: 'CPU'}
@@ -53,7 +53,7 @@ layui.use(['jquery','table','form'], function(){
     ,done: function(res, curr, count){
       var disable_arr = [];
       for(let i in res.data){
-        if(res.data[i].swarm_id.length){
+        if(res.data[i].swarm_id){
           disable_arr.push(i);
         }
       }

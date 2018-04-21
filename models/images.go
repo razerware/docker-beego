@@ -1,10 +1,10 @@
 package models
 
 import (
-	"github.com/razerware/docker_beego/client"
-	"net/http"
 	"fmt"
+	"github.com/razerware/docker_beego/client"
 	"io/ioutil"
+	"net/http"
 )
 
 func PullImages(name string, tag string) {

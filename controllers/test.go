@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"github.com/razerware/docker_beego/models"
+	"encoding/json"
 	"fmt"
 	"github.com/golang/glog"
-	"encoding/json"
+	"github.com/razerware/docker_beego/models"
 )
 
 type TestController struct {
@@ -92,6 +92,6 @@ func (c *TestController) Session_test() {
 
 // @router /test_uid [*]
 func (c *TestController) Uid_test() {
-	c.Data["json"]=c.userId
+	c.Data["json"] = c.userId
 	c.ServeJSON()
 }

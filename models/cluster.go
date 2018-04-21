@@ -1,22 +1,23 @@
 package models
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/golang/glog"
 )
 
-type ClusterInfo []struct {
-	Swarm_ID   int    `json:"swarm_id"`
-	Token      string `json:"token"`
-	Manager_ip string `json:"manager_ip"`
-	User
-	ElasticInfo
-}
+//type ClusterInfo []struct {
+//	Swarm_ID   int    `json:"swarm_id"`
+//	Token      string `json:"token"`
+//	Manager_ip string `json:"manager_ip"`
+//	User
+//	ElasticInfo
+//}
 
 type ClusterInit struct {
 	//ListenAddr      string `json:"ListenAddr"`
 	AdvertiseAddr string `json:"AdvertiseAddr"`
-	Spec struct {
+	Spec          struct {
 		Name string `json:"Name"`
 	} `json:"Spec"`
 }
@@ -25,7 +26,7 @@ type ClusterJoin struct {
 	ListenAddr    string   `json:"listenAddr"`
 	AdvertiseAddr string   `json:"AdvertiseAddr"`
 	JoinToken     string   `json:"JoinToken"`
-	RemoteAddrs   []string `json:"RemoteAddrs"`
+	RemoteAddrs   []string `json:"RemoteAddrs"` //manager_ip
 }
 
 type FrontendCI struct {
@@ -64,8 +65,46 @@ func RegistCluster(fci FrontendCI, uid int) {
 
 }
 
-func ListCluster(uid int) []map[string]interface{}{
+//according to Uid
+func ListClusterU(uid int) []map[string]interface{} {
 	sql := fmt.Sprintf("SELECT * FROM `cluster_info` WHERE uid=%d", uid)
 	record := MysqlQuery(sql)
 	return record
+}
+
+func ListClusterAll() []map[string]interface{} {
+	sql := fmt.Sprintf("SELECT * FROM `cluster_info`")
+	record := MysqlQuery(sql)
+	return record
+}
+
+func SelectNode(username string, step int) ([]string, error) {
+	var nodeList []string
+	sql := fmt.Sprintf("SELECT ip FROM `vm_info` WHERE `swarm_id` is NULL AND `username`='%s'", username)
+	record := MysqlQuery(sql)
+	if len(record) <= step {
+		return nil, fmt.Errorf("no available nodes or avaliable nodes < Step")
+	}
+	for _, node := range record {
+		if ip, ok := node["ip"].(string); ok {
+			nodeList = append(nodeList, ip)
+		}
+	}
+	return nodeList, nil
+}
+
+func JoinClusterDo(cj ClusterJoin, ip string) bool {
+	sendCJ, err := json.Marshal(cj)
+	if err != nil {
+		glog.Error("sendCJ combine error", err)
+		return false
+	}
+	url := fmt.Sprintf("http://%s:2375/swarm/join", ip)
+	glog.Info(url)
+	code, body, err := MyPost(url, sendCJ)
+	if err != nil || code > 200 {
+		glog.Error("swarm join failed", code, string(body))
+		glog.Error(err)
+	}
+	return false
 }

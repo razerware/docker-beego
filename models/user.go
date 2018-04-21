@@ -13,12 +13,11 @@ type User struct {
 }
 
 func ListUser() []User {
-	//var uid int
-	//c.Ctx.Input.Bind(&uid, "uid")
 	sql := fmt.Sprintf("SELECT username,uid FROM `user`")
 	record := MysqlQuery(sql)
-	userList := []User{}
-	if record==nil{
+	var userList []User
+	//userList := []User{}
+	if record == nil {
 		glog.Info("record empty")
 		return userList
 	}
@@ -36,5 +35,3 @@ func ListUser() []User {
 	//c.Data["json"] = fj
 	//c.ServeJSON()
 }
-
-

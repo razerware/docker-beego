@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"fmt"
-	"github.com/razerware/docker_beego/models"
 	"encoding/json"
+	"fmt"
 	"github.com/golang/glog"
+	"github.com/razerware/docker_beego/models"
 )
 
 type ServiceController struct {
@@ -44,7 +44,10 @@ func (c *ServiceController) ServiceApplyPost() {
 	ss.Name = fss.Name
 	ss.TaskTemplate.ContainerSpec.Image = fss.Image
 	ss.TaskTemplate.Placement.Constraints = append(ss.TaskTemplate.Placement.Constraints, fss.Constraints)
-	ss.TaskTemplate.Networks = append(ss.TaskTemplate.Networks, struct{ Target string `json:"Target"` }{fss.Target})
+	ss.TaskTemplate.Networks = append(ss.TaskTemplate.Networks, struct {
+		Target string `json:"Target"`
+	}{fss.Target})
+	ss.TaskTemplate.ForceUpdate = 1
 	ss.Mode.Replicated.Replicas = fss.Replicas
 	ss.Labels.TraefikPort = fss.TraefikPort
 	//ss.Labels.TraefikFrontendRule = fss.TraefikFrontendRule

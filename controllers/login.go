@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/razerware/docker_beego/models"
 	"github.com/golang/glog"
+	"github.com/razerware/docker_beego/models"
 	"strings"
 )
 
@@ -83,7 +83,7 @@ func (c *LoginController) Auth(user models.User) (bool, interface{}) {
 	sql := "SELECT password,uid FROM user Where username='" + user.Username + "'"
 	record := models.MysqlQuery(sql)
 	glog.Info(record)
-	if record!=nil{
+	if record != nil {
 		password, ok := record[0]["password"]
 		if ok && password == user.Password {
 			uid, _ := record[0]["uid"]

@@ -1,17 +1,17 @@
 package models
 
 import (
-	"net/http"
 	"bytes"
-	"io/ioutil"
-	"fmt"
 	"github.com/golang/glog"
+	"io/ioutil"
+	"net/http"
 )
 
 func MyPost(url string, send_bytes []byte) (int, []byte, error) {
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(send_bytes))
 	if err != nil {
 		// handle error
+		glog.Error(err)
 	}
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -29,7 +29,7 @@ func MyPost(url string, send_bytes []byte) (int, []byte, error) {
 
 func MyGet(url string, queries map[string]string) (int, []byte, error) {
 	client := &http.Client{}
-	fmt.Println(url)
+	glog.V(1).Info(url)
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		// handle error
@@ -37,13 +37,16 @@ func MyGet(url string, queries map[string]string) (int, []byte, error) {
 	}
 	//add queries
 	q := req.URL.Query()
-	for k, v := range queries {
-		q.Add(k, v)
+	if queries != nil {
+		for k, v := range queries {
+			q.Add(k, v)
+		}
+		req.URL.RawQuery = q.Encode()
+		glog.V(1).Info(req.URL.String())
 	}
+
 	//q.Add("fromImage","hello-world")
 	//q.Add("tag","latest")
-	req.URL.RawQuery = q.Encode()
-	glog.Info(req.URL.String())
 
 	resp, err := client.Do(req)
 	defer resp.Body.Close()
@@ -52,7 +55,28 @@ func MyGet(url string, queries map[string]string) (int, []byte, error) {
 		// handle error
 		glog.Error(err)
 	} else {
-		glog.V(1).Info("MyPost successed!")
+		glog.V(1).Info("MyGet successed!")
+	}
+	code := resp.StatusCode
+	return code, body, err
+}
+
+func MyDelete(url string) (int, []byte, error) {
+	client := &http.Client{}
+	glog.V(1).Info(url)
+	req, err := http.NewRequest("DELETE", url, nil)
+	if err != nil {
+		// handle error
+		glog.Error(err)
+	}
+	resp, err := client.Do(req)
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		// handle error
+		glog.Error(err)
+	} else {
+		glog.V(1).Info("MyDelete successed!")
 	}
 	code := resp.StatusCode
 	return code, body, err

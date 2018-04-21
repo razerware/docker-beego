@@ -14,11 +14,11 @@ func (c *BaseController) Prepare() {
 	c.userId = -1
 	username := c.Ctx.GetCookie("username")
 	uid := c.GetSession(username)
-	glog.V(1).Info(username,",",uid)
+	glog.V(1).Info(username, ",", uid)
 	v, ok := uid.(int)
 	if ok {
 		c.userId = v
-		glog.V(1).Info("session exist: username: ",username,",uid: ",uid)
+		glog.V(1).Info("session exist: username: ", username, ",uid: ", uid)
 	} else {
 		glog.Info("session not exist")
 		controllerName, actionName := c.GetControllerAndAction()
@@ -26,11 +26,12 @@ func (c *BaseController) Prepare() {
 		if c.userId == -1 && (controllerName != "LoginController" && actionName != "logIn") {
 			glog.V(1).Info("Not in Login")
 			c.redirect(beego.URLFor("LoginController.LogIn"))
-		}else{
+		} else {
 			glog.V(1).Info("This is in Login")
 		}
 	}
 }
+
 //
 //func (c *BaseController) GetUid() int {
 //	username := c.Ctx.GetCookie("username")

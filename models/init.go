@@ -1,5 +1,5 @@
 package models
 
-func Init(){
+func Init() {
 	MysqlConnect()
 }

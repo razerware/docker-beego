@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"fmt"
-	"github.com/razerware/docker_beego/models"
 	"encoding/json"
+	"fmt"
 	"github.com/golang/glog"
+	"github.com/razerware/docker_beego/models"
 )
 
 type ClusterController struct {
@@ -105,6 +105,5 @@ func (c *ClusterController) ClusterExpand(managerIp string, ip string, joinToken
 			fmt.Println(v)
 		}
 	}
-
 	return false, nil
 }

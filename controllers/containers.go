@@ -1,9 +1,9 @@
 package controllers
 
 import (
-"github.com/astaxie/beego"
-	"fmt"
 	"encoding/json"
+	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/razerware/docker_beego/models"
 )
 
@@ -18,37 +18,38 @@ type user struct {
 }
 
 type user2 struct {
-	Id    int `json:"-"`
+	Id    int         `json:"-"`
 	Name  interface{} `json:"username"`
 	Age   int         `json:"age"`
 	Email string      `json:"email"`
 }
+
 func (c *ContainerController) Get() {
-	if models.DbError!=nil{
+	if models.DbError != nil {
 		fmt.Println(models.DbError)
 		c.TplName = "test.tpl"
 	}
-	db:=models.DB
+	db := models.DB
 	err := db.Ping()
 	if err != nil {
 		fmt.Println(err)
 		c.TplName = "test.tpl"
 		return
-	}else{
+	} else {
 		fmt.Println("ok")
 	}
-	rows,err:=db.Query("SELECT * FROM service")
-	if err!=nil{
+	rows, err := db.Query("SELECT * FROM service")
+	if err != nil {
 		fmt.Println(err)
-	}else{
+	} else {
 		fmt.Println("ok rows")
 	}
-	for rows.Next()  {
+	for rows.Next() {
 		var name string
-		if err=rows.Scan(&name);err!=nil{
+		if err = rows.Scan(&name); err != nil {
 			fmt.Println(err)
 			fmt.Println("ggggggg")
-		}else{
+		} else {
 			fmt.Println(name)
 			fmt.Println("ssssss")
 		}

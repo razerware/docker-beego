@@ -1,28 +1,27 @@
 package models
 
-import "database/sql"
 import (
+	"database/sql"
+	"fmt"
+	"github.com/astaxie/beego"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang/glog"
-	"encoding/json"
-	"github.com/astaxie/beego"
-	"fmt"
 )
 
 var DB *sql.DB
 var DbError error
 
 func MysqlConnect() {
-	DBUserName:=beego.AppConfig.String("MysqlUserName")
-	DBPwd:=beego.AppConfig.String("MysqlPwd")
-	DBUrl:=beego.AppConfig.String("MysqlUrl")
-	DBName:=beego.AppConfig.String("MysqlDBName")
-	dataSourceName:=fmt.Sprintf("%s:%s@tcp(%s)/%s",DBUserName,DBPwd,DBUrl,DBName)
+	DBUserName := beego.AppConfig.String("MysqlUserName")
+	DBPwd := beego.AppConfig.String("MysqlPwd")
+	DBUrl := beego.AppConfig.String("MysqlUrl")
+	DBName := beego.AppConfig.String("MysqlDBName")
+	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s)/%s", DBUserName, DBPwd, DBUrl, DBName)
 	DB, DbError = sql.Open("mysql", dataSourceName)
 	if DbError != nil {
 		glog.Fatal(DbError)
 	}
-	if DB==nil{
+	if DB == nil {
 		glog.Fatal("DB need init")
 		return
 	}
@@ -39,7 +38,7 @@ func MysqlConnectTest() {
 	if DbError != nil {
 		glog.Error(DbError)
 	}
-	if DB==nil{
+	if DB == nil {
 		glog.Error("DB need init")
 		return
 	}
@@ -54,12 +53,12 @@ func MysqlConnectTest() {
 
 // This method return []map[string]interface{} rather than interface{}
 // so we can get value of returns
-func MysqlQuery(sql string) ([]map[string]interface{}) {
+func MysqlQuery(sql string) []map[string]interface{} {
 	if DbError != nil {
 		glog.Fatal(DbError)
 		DB.Close()
 	}
-	if DB==nil{
+	if DB == nil {
 		glog.Fatal("DB need init")
 		return []map[string]interface{}{}
 	}
@@ -67,10 +66,10 @@ func MysqlQuery(sql string) ([]map[string]interface{}) {
 	err := db.Ping()
 	var record []map[string]interface{}
 	if err != nil {
-		glog.Error("dbPing error ",err)
+		glog.Error("dbPing error ", err)
 		return record
 	} else {
-		glog.Info("mysql connect ok")
+		glog.V(1).Info("mysql connect ok")
 	}
 	stmt, err := db.Prepare(sql)
 	if err != nil {
@@ -97,22 +96,17 @@ func MysqlQuery(sql string) ([]map[string]interface{}) {
 		for i, col := range columns {
 			var v interface{}
 			val := values[i]
-			switch value:=val.(type) {
+			switch value := val.(type) {
 			case int64:
-				v=int(value)
+				v = int(value)
 			case []byte:
-				v=string(value)
+				v = string(value)
 			case float64:
-				v=int(value)
+				v = int(value)
 			default:
-				v=value
+				v = value
 			}
-			//b, ok := val.([]byte)
-			//if ok {
-			//	v = string(b)
-			//} else {
-			//	v = val
-			//}
+
 			entry[col] = v
 		}
 		record = append(record, entry)
@@ -120,23 +114,7 @@ func MysqlQuery(sql string) ([]map[string]interface{}) {
 	}
 	return record
 }
-func MysqlQuery_abandon(sql string, st interface{}) (interface{}) {
-	record := MysqlQuery(sql)
-	if len(record) < 1 {
-		glog.Error("no result")
-		return record
-	}
-	glog.V(1).Info(record)
-	temp, err := json.Marshal(record)
-	if err != nil {
-		glog.Error(err)
-	}
-	err = json.Unmarshal(temp, &st)
-	if err != nil {
-		glog.Error(err)
-	}
-	return st
-}
+
 func MysqlInsert(sql string) (int64, int64, error) {
 	glog.V(1).Info("In MysqlInsert func")
 	if DbError != nil {
@@ -167,4 +145,8 @@ func MysqlInsert(sql string) (int64, int64, error) {
 		glog.V(1).Info("RowsAffected:", RowsAffected)
 	}
 	return LastInsertId, RowsAffected, nil
+}
+
+func MysqlUpdate(sql string) (int64, int64, error) {
+	return MysqlInsert(sql)
 }
